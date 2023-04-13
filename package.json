@@ -1,0 +1,22 @@
+{
+  "name": "cos550-aimeelramirez",
+  "version": "1.0.0",
+  "description": "To run both server and client with npm",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FullSailGameStudies/cos550-aimeelramirez.git"
+  },
+  "author": "aimee ramirez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FullSailGameStudies/cos550-aimeelramirez/issues"
+  },
+  "homepage": "https://github.com/FullSailGameStudies/cos550-aimeelramirez#readme"
+}
