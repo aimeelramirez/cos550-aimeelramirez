@@ -26,7 +26,7 @@ const startAPI = async ()=> {
 
   });
 
-console.log('\x1b[36m%s\x1b[0m', response.data.choices[0].text);
+console.log(response.data.choices[0].text);
 return response
 };
 
@@ -36,7 +36,8 @@ app.get("/", function (req, res) {
   <p>This is an open endpoint with not authenication needed at the moment.</p>`;
   res.send(intro);
   //returns the request from async await function
-  startAPI();
+  let apiTest = startAPI();
+  console.log(apiTest);
 })
 app.listen(app.get("port"), function () {
   console.log("Node app is running at localhost:" + app.get("port"));
