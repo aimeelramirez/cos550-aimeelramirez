@@ -16,7 +16,9 @@ const openai = new OpenAIApi(configuration);
 
 //set the port number
 app.set("port", process.env.PORT || 3000);
-
+// checks if content-type is json & parses into req.body
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 //function to start API
 //returns the request from async await function
 const startAPI = async (prompt) => {
@@ -46,8 +48,7 @@ app.get("/", function (req, res) {
 app.post('/api', (req, res) => {
   //testing scripts
   console.log(req);
-  res.send('Posted' + JSON.stringify(req))
-
+  res.send('Posted ' + JSON.stringify(req))
 
 });
 app.listen(app.get("port"), function () {

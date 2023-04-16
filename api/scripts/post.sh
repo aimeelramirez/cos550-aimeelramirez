@@ -8,8 +8,7 @@ curl "${API}${URL_PATH}" \
   --request POST \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer ${TOKEN}" \
-
-  -d '{
+  --data '{
    "body":"In a NABRE bible religious belief, is God real? Provide a verse from NABRE."
   }'
 echo
