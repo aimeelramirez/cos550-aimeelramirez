@@ -46,6 +46,7 @@ app.get("/", function (req, res) {
 app.post('/api', (req, res) => {
   //testing scripts
   console.log(req);
+  res.send('Posted' + JSON.stringify(req))
 
 
 });
