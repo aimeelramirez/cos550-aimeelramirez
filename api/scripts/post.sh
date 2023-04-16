@@ -1,5 +1,5 @@
 #!/bin/bash
-API="http://localhost:3000"
+API="https://cos550-aimeelramirez-api.herokuapp.com"
 URL_PATH="/api"
 TOKEN=$OPENAI_API_KEY
 curl "${API}${URL_PATH}" \
