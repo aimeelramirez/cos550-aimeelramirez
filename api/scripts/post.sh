@@ -1,7 +1,6 @@
 #!/bin/bash
 API="https://cos550-aimeelramirez-api.herokuapp.com"
 URL_PATH="/api"
-TOKEN=$OPENAI_API_KEY
 curl "${API}${URL_PATH}" \
   --include \
   --request POST \
