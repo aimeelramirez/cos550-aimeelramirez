@@ -1,4 +1,6 @@
 const express = require("express");
+const bodyParser = require('body-parser')
+
 //get api
 const app = express();
 //reads the env
@@ -19,6 +21,8 @@ app.set("port", process.env.PORT || 3000);
 // checks if content-type is json & parses into req.body
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 //function to start API
 //returns the request from async await function
 const startAPI = async (prompt) => {
@@ -45,12 +49,16 @@ app.get("/", function (req, res) {
 });
 
 //this is a post endpoint for the request to backend api to startAPI prompt.
-app.post('/api', (req, res) => {
+app.post('/api', (req, res, next) => {
   //testing scripts
-  console.log(req);
-  res.send('Posted ' + JSON.stringify(req))
+ 
+  startAPI(req.body.prompt).then((data) => {
+    console.log(data)
+    res.send(data);
+  });
 
 });
+
 app.listen(app.get("port"), function () {
   console.log("Node app is running at localhost:" + app.get("port"));
 });
