@@ -4,7 +4,7 @@
   "description": "backend api endpoint for ChatGPT/OpenAI application",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js"
+    "start": "npm install && node index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,16 @@
   "bugs": {
     "url": "https://github.com/FullSailGameStudies/cos550-aimeelramirez/issues"
   },
-  "homepage": "https://github.com/FullSailGameStudies/cos550-aimeelramirez#readme"
+  "homepage": "https://github.com/FullSailGameStudies/cos550-aimeelramirez#readme",
+  "keywords": [
+    "endpoint"
+  ],
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "http": "^0.0.1-security",
+    "https": "^1.0.0",
+    "openai": "^3.2.1",
+    "request": "^2.88.2"
+  }
 }

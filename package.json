@@ -7,7 +7,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": ""
+    "start": "cd ./api && npm run start"
   },
   "repository": {
     "type": "git",
