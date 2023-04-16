@@ -1,12 +1,15 @@
 ## Backend API Folder Directory
 
-### Todo:
-- [x]  Decide what framework or engine would work best in a time effective manner.
-- [ ]  Decide what libraries to use for UI/UX design.
-- [ ]  TBA
 
 Live:
 https://cos550-aimeelramirez-api.herokuapp.com/
 
 
 ```curl https://cos550-aimeelramirez-api.herokuapp.com/```
+
+### Test: 
+Get your keys:[https://platform.openai.com/account/api-keys](https://platform.openai.com/account/api-keys)
+
+```
+sh ./scripts/post.sh
+```
