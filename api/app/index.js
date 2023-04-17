@@ -1,16 +1,17 @@
 const express = require("express");
-//call router
-const router = express.Router();
 //parser
 const bodyParser = require('body-parser')
 //get api
 const app = express();
 //reads the env
 require('dotenv').config();
+
 //get routes
 const apiRouter = require('./api');
+
 //set the port number
-app.set("port", process.env.PORT || 3000);
+app.set("port", process.env.PORT || 4000);
+
 // checks if content-type is json & parses into req.body
 app.use(bodyParser.urlencoded({
     extended: true

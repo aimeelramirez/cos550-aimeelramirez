@@ -1,5 +1,7 @@
 ## Backend API Folder Directory
 
+## Run it locally:
+- npm run start
 
 Live:
 https://cos550-aimeelramirez-api.herokuapp.com/

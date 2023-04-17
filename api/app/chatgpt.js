@@ -1,5 +1,3 @@
-//reads the env
-require('dotenv').config();
 //gets configuration
 const {
   Configuration,
