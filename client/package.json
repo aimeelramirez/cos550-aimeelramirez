@@ -39,5 +39,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FullSailGameStudies/cos550-aimeelramirez.git"
+  },
+  "author": "aimee ramirez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FullSailGameStudies/cos550-aimeelramirez/issues"
+  },
+  "homepage": "https://aimeelramirez.github.io/cos550-aimeelramirez/"
 }
