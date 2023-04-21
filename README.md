@@ -7,3 +7,11 @@ This is the start of your repository for the Advanced Software Engineering cours
 3. <s>Establish a proper .gitignore file for your project before making any commits into revision control.</s> ✅
 4. <s>Commit the starter files for the basic project.</s>
 5. <s>Begin work on your project features.</s>
+
+Live Client:
+
+ [https://aimeelramirez.github.io/cos550-aimeelramirez/](https://aimeelramirez.github.io/cos550-aimeelramirez/)
+
+ Live API:
+
+ [https://cos550-aimeelramirez-api.herokuapp.com/](https://cos550-aimeelramirez-api.herokuapp.com/)
