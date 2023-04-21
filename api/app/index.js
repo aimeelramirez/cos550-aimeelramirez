@@ -1,5 +1,6 @@
 /*eslint no-undef: "error"*/
 /*eslint-env node*/
+// esline-disable-next-line no-unused-vars
 
 const express = require("express");
 //parser
@@ -23,15 +24,15 @@ app.use(bodyParser.json())
 // set up to use router
 app.use('/api', apiRouter);
 //handling middleware
-// esline-disable-next-line no-unused-vars
-app.use((err, req, res) => {
-    console.error('ERROR FOUND:', err);
+app.use((req, res, next) => {
     res.sendStatus(500);
+    next();
 })
-app.get("/", function (req, res) {
-    let intro = `<h1>cos550-aimeelramirez-api</h1>
-    <p>This is an open endpoint with not authenication needed at the moment</p>`;
-    res.send(intro)
-});
+//commenting out for no usages for use will send response
+// app.get("/", function (req, res) {
+//     let intro = `<h1>cos550-aimeelramirez-api</h1>
+//     <p>This is an open endpoint with not authenication needed at the moment</p>`;
+//     res.send(intro)
+// });
 // export the express app
 module.exports = app;

@@ -7,7 +7,10 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cd ./api && npm run start"
+    "start": "cd ./api && npm run start",
+    "start-api-test":"cd ./api && npm run start-dev",
+    "start-api":"cd ./api && npm run start"
+
   },
   "repository": {
     "type": "git",
