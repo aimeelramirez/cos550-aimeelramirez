@@ -15,3 +15,8 @@ Get your keys:[https://platform.openai.com/account/api-keys](https://platform.op
 ```
 sh ./scripts/post.sh
 ```
+Running eslinter:
+
+```
+ npx eslint api/  <your file>.js
+ ```

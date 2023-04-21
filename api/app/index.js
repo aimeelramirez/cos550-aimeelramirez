@@ -1,3 +1,6 @@
+/*eslint no-undef: "error"*/
+/*eslint-env node*/
+
 const express = require("express");
 //parser
 const bodyParser = require('body-parser')
@@ -21,8 +24,8 @@ app.use(bodyParser.json())
 app.use('/api', apiRouter);
 //handling middleware
 // esline-disable-next-line no-unused-vars
-app.use((err, req, res, next) => {
-    error('ERROR FOUND:', err);
+app.use((err, req, res) => {
+    console.error('ERROR FOUND:', err);
     res.sendStatus(500);
 })
 app.get("/", function (req, res) {

@@ -1,6 +1,8 @@
+/*eslint no-undef: "error"*/
+/*eslint-env node*/
 
 // create express app
-const app = require('./app')
+let app = require('./app')
 
 // start server and log port its running on
 app.listen(app.get("port"), function () {
