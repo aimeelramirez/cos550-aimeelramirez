@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import logo from "./logo.svg";
+import Loader from "./Loader/Loader";
+import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+  const [loaded, setLoaded] = useState<any>(false);
+  //create a loader
+  if (loaded === false) {
+    setTimeout(() => {
+      setLoaded(true);
+    }, 8000);
+
+    return (
+      <div className="Loader">
+        <div
+          onClick={() => {
+            setLoaded(true);
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+          <Loader />
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <div className="App">
+        <header className="App-header">
+          {/* <img src={logo} className="App-logo" alt="logo" />
+          <p>
+            Edit <code>src/App.tsx</code> and save to reload.
+          </p>
+          <a
+            className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          > */}
+           Under Construction
+          
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;
