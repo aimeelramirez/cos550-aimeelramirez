@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
 import Loader from "./Loader/Loader";
 import "./App.css";
 
@@ -12,7 +11,7 @@ function App() {
     }, 8000);
 
     return (
-      <div className="Loader">
+      <div id="Loader" style={{ paddingTop:'5%', textAlign: 'center', margin: '0 auto' }}>
         <div
           onClick={() => {
             setLoaded(true);
