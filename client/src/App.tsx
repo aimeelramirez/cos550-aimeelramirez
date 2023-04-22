@@ -5,8 +5,8 @@ import "./App.css";
 
 function App() {
   const [loaded, setLoaded] = useState<any>(false);
-  const [post, setPost] = useState<any>('');
-  const [promptPost, setPrompt] = useState<any>('');
+  // const [post, setPost] = useState<any>();
+  // const [promptPost, setPrompt] = useState<any>();
   const [clickRef, setClick]= useState<any>(false);
 
   const inputRef = useRef<any>(null);
@@ -20,24 +20,28 @@ function App() {
   function handleClick(e:any) {
     e.preventDefault();
     console.log(e.target[0].value)
-    setPost(e.target[0].value);
-    postUserPrompt(e.target[0].value)
+    let result = "In NABRE Bible, " + e.target[0].value + " Provide a verse supporting results.";
+    postUserPrompt(result);
     
   }
 const HandleShow =()=> {
+  if(state.length > 0){
    return ( <ul>{state.map((element:any, i:number) => {
-    return(<li>{state[i]} <hr/></li>)
+    return(<li key={i}>{element} <hr/></li>)
    })
    }</ul>  )
+  }else{
+    return(<p>Cleared.</p>)
+  }
   }
   async function postUserPrompt(prompt:any) {
     try {
-      const response = await axios.post('https://private-5a988-cos550aimeelramirezapi.apiary-mock.com/api', {prompt});
+      const response = await axios.post('http://localhost:4000/api/', {prompt});
+      state.push(response.data);  
+
       console.log(response);
-      console.log(state)
-      setPrompt(response.data.choices[0].message.content)
+
       setClick(true);
-      state.push(promptPost);  
     } catch (error) {
       console.error(error);
       alert(error);
