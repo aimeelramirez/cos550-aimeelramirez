@@ -1,7 +1,7 @@
 .App {
   text-align: center;
-  background-color: #282c34;
-  color: white;
+  /* background-color: #282c34;
+  color: white; */
 }
 /*hr*/
 .content,
@@ -20,16 +20,24 @@ form  {
 }
 
 .App-header {
-  background-color: #282c34;
+  /* background-color: #282c34; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: 33px;
-  color: white;
+  /* color: white; */
 }
+.App-header >ul{
+  width:80%;
 
+}
+.App-header > ul > li {
+  list-style-type: circle;
+
+
+}
 .App-link {
   color: #61dafb;
 }

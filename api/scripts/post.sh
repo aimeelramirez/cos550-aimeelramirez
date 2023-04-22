@@ -1,5 +1,5 @@
 #!/bin/bash
-API="https://cos550-aimeelramirez-api.herokuapp.com"
+API="https://private-5a988-cos550aimeelramirezapi.apiary-mock.com"
 URL_PATH="/api"
 TOKEN=$OPENAI_API_KEY
 curl "${API}${URL_PATH}" \
