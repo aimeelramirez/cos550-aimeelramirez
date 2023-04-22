@@ -1,5 +1,5 @@
 #!/bin/bash
-API="https://private-5a988-cos550aimeelramirezapi.apiary-mock.com"
+API="http://localhost:4000"
 URL_PATH="/api"
 TOKEN=$OPENAI_API_KEY
 curl "${API}${URL_PATH}" \
