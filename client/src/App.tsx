@@ -36,7 +36,7 @@ const HandleShow =()=> {
   }
   async function postUserPrompt(prompt:any) {
     try {
-      const response = await axios.post('http://localhost:4000/api/', {prompt});
+      const response = await axios.post('https://cos550-aimeelramirez-api.herokuapp.com/api/', {prompt});
       state.push(response.data);  
 
       console.log(response);
