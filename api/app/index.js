@@ -24,10 +24,10 @@ app.use(
   }),
 );
 app.use(bodyParser.json());
-// set up to use router
-app.use("/api", apiRouter);
+
 //handling middleware
 app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
   res.sendStatus(500);
   if (res.statusCode == 500) {
     test("status is 500.", () => {
@@ -36,7 +36,8 @@ app.use((req, res, next) => {
   }
   next();
 });
-
+// set up to use router
+app.use("/api", apiRouter);
 //commenting out for no usages for use will send response
 // app.get("/", function (req, res) {
 //     let intro = `<h1>cos550-aimeelramirez-api</h1>

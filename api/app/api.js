@@ -10,6 +10,7 @@ router.get("/", function (req, res) {
 
 //this is a post endpoint for the request to backend api to chatGpt prompt.
 router.post('/', (req, res) => {
+  
   //testing scripts
   chatGpt(req.body.prompt).then((data) => {
     console.log(data)
