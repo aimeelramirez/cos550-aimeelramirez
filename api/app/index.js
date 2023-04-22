@@ -4,6 +4,8 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
 const express = require("express");
+const cors = require('cors')
+
 //parser
 const bodyParser = require("body-parser");
 //get api
@@ -25,6 +27,10 @@ app.use(
 );
 app.use(bodyParser.json());
 
+
+app.use(cors())
+// set up to use router
+app.use("/api", apiRouter);
 //handling middleware
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -36,8 +42,7 @@ app.use((req, res, next) => {
   }
   next();
 });
-// set up to use router
-app.use("/api", apiRouter);
+
 //commenting out for no usages for use will send response
 // app.get("/", function (req, res) {
 //     let intro = `<h1>cos550-aimeelramirez-api</h1>
