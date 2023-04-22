@@ -13,6 +13,7 @@ const openai = new OpenAIApi(configuration);
 //function to start API
 //returns the request from async await function
 const chatGpt = async (prompt) => {
+  console.log(prompt)
     const response = await openai.createCompletion({
       model: "text-davinci-003",
       prompt,
@@ -20,7 +21,6 @@ const chatGpt = async (prompt) => {
       max_tokens: 1000
   
     });
-    //console.log(response.data.choices[0].text)
     return response.data.choices[0].text
   };
 

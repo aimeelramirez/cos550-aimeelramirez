@@ -4,8 +4,6 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
 const express = require("express");
-const cors = require('cors')
-
 //parser
 const bodyParser = require("body-parser");
 //get api
@@ -26,20 +24,24 @@ app.use(
   }),
 );
 app.use(bodyParser.json());
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  // res.header('Access-Control-Allow-Credentials', true);
 
-
-app.use(cors())
-
-//handling middleware
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", '*');
-  res.header("Access-Control-Allow-Credentials", true);
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-  res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
+  // res.sendStatus(500);
+  // if (res.statusCode == 500) {
+  //   test("status is 500.", () => {
+  //     assert.equal(500, res.statusCode, "error in 500");
+  //   });
+  // }
   next();
 });
+
 // set up to use router
 app.use("/api", apiRouter);
+//handling middleware
 
 //commenting out for no usages for use will send response
 // app.get("/", function (req, res) {
