@@ -5,10 +5,7 @@ import "./App.css";
 
 function App() {
   const [loaded, setLoaded] = useState<any>(false);
-  // const [post, setPost] = useState<any>();
-  // const [promptPost, setPrompt] = useState<any>();
   const [clickRef, setClick]= useState<any>(false);
-
   const inputRef = useRef<any>(null);
   const [state, setState]= useState<any>([]);
  
