@@ -2,11 +2,20 @@
   text-align: center;
   /* background-color: #282c34;
   color: white; */
+  min-height: 100vh;
 }
 /*hr*/
-.content,
+.content{
+  width:100%;
+  min-height: 10vh;
+}
 form  {
   width:100%;
+}
+#footer{
+border-top: 1px solid white;
+margin-top: 10vh;
+width:100%;
 }
 .App-logo {
   height: 40vmin;
@@ -21,7 +30,7 @@ form  {
 
 .App-header {
   /* background-color: #282c34; */
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,13 +38,9 @@ form  {
   font-size:20px;
   /* color: white; */
 }
-.App-header >ul{
-  width:80%;
-}
+
 .App-header > ul > li {
   list-style-type: circle;
-
-
 }
 .App-link {
   color: #61dafb;

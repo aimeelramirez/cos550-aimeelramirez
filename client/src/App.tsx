@@ -6,6 +6,8 @@ import "./App.css";
 function App() {
   const [loaded, setLoaded] = useState<any>(false);
   const [clickRef, setClick]= useState<any>(false);
+  const [hasClicked, setHasClicked]= useState<any>(false);
+
   const inputRef = useRef<any>(null);
   const [state, setState]= useState<any>([]);
  
@@ -17,28 +19,30 @@ function App() {
   function handleClick(e:any) {
     e.preventDefault();
     console.log(e.target[0].value)
-    let result = "In NABRE Bible, " + e.target[0].value + " Provide a verse supporting results.";
-    postUserPrompt(result);
+    postUserPrompt(e.target[0].value);
     
   }
 const HandleShow =()=> {
   if(state.length > 0){
    return ( <ul>{state.map((element:any, i:number) => {
-    return(<li key={i}>{element} <hr/></li>)
+    return(<li key={i}><p>Q: {element.prompt}</p>A: {element.data}</li>)
    })
    }</ul>  )
   }else{
-    return(<p>Cleared.</p>)
+    return(<p>{hasClicked ? "Cleared." : ""}</p>)
   }
   }
   async function postUserPrompt(prompt:any) {
     try {
-      const response = await axios.post('https://cos550-aimeelramirez-api.herokuapp.com/api', {prompt:prompt});
-      state.push(response.data);  
+      let result = "In NABRE Bible, " + prompt + " Provide a verse supporting results.";
+      const response = await axios.post('https://cos550-aimeelramirez-api.herokuapp.com/api', {prompt:result});
+      state.push({prompt, data:response.data});  
 
       console.log(response);
 
       setClick(true);
+      setHasClicked(true);
+
     } catch (error) {
       console.error(error);
       alert(error);
@@ -65,46 +69,48 @@ const HandleShow =()=> {
   } else {
 if(clickRef === true && state){
   setClick(false);
-
 return(
   <div className="App">
   <header className="App-header">
-   <p> PraiseAI</p>
-      
-     <button title={'Clear'}  onClick={handleClearClick} type="submit">clear</button>
-
+   <h1>PraiseAI</h1>
+   </header>
+   {hasClicked ? <><div className="box">
+       <HandleShow/></div>
+      <button title={'Clear'}  onClick={handleClearClick} type="submit">clear</button></>
+: ''}
    <div className="content">
    <hr/>
-   </div>
     <form ref={inputRef}  onSubmit={handleClick} >
-    <textarea>Write something here</textarea>
+    <textarea>Why is the sky blue?</textarea>
     <hr/>
+    <p>Please provide a question to the prompt above.</p>
     <button title={'Submit'} type="submit">Submit</button>
     </form>
-  </header>
-<footer>Hi Mommy Milagros</footer>
+    </div>
+<footer id="footer">Hi Mommy Milagros</footer>
 </div>
 )
     }else{
       
     return (
       <div className="App">
-        <header className="App-header">
-         <p> PraiseAI</p>
-           <HandleShow/>
-            
-           <button title={'Clear'}  onClick={handleClearClick} type="submit">clear</button>
-
+      <header className="App-header">
+      <h1>PraiseAI</h1>
+      {hasClicked ? <><div className="box">
+       <HandleShow/></div>
+      <button title={'Clear'}  onClick={handleClearClick} type="submit">clear</button></>
+: ''}
+         </header>
          <div className="content">
          <hr/>
-         </div>
           <form ref={inputRef}  onSubmit={handleClick} >
-          <textarea>Write something here</textarea>
+          <textarea>Why is the sky blue?</textarea>
           <hr/>
+          <p>Please provide a question to the prompt above.</p>
           <button title={'Submit'} type="submit">Submit</button>
           </form>
-        </header>
-      <footer>Hi Mommy Milagros</footer>
+          </div>
+      <footer  id="footer"> Hi Mommy Milagros</footer>
       </div>
     );
   }

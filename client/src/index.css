@@ -11,7 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
+.box{
+margin: 0 auto;
+padding:0;
+background-color: white;
+width: 50%;
+height: 100px;
+color: black;
+overflow: scroll;
+text-align: left;
+border: 1px solid grey;
+border-radius: .8rem;
+}
 textarea{
   background-color: white;
   font-size: 20px;
@@ -19,7 +30,8 @@ textarea{
   height: 100%;
   min-height: 100px;
   border: 2px solid grey;
-  border-radius: 2%;
+  border-radius: .8rem;
+
 }
 button{
   border-radius: 8px;
