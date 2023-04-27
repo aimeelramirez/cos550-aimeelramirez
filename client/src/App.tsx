@@ -23,11 +23,13 @@ function App() {
     
   }
 const HandleShow =()=> {
+  state.reverse()
   if(state.length > 0){
-   return ( <ul>{state.map((element:any, i:number) => {
-    return(<li key={i}><p>Q: {element.prompt}</p>A: {element.data}</li>)
+    console.log(state)
+   return ( <><ul>{state.map((element:any, i:number) => {
+    return(<li key={state.id}><p>Q: {element.prompt}</p>A: {element.data}</li>)
    })
-   }</ul>  )
+   }</ul> </> )
   }else{
     return(<p>{hasClicked ? "Cleared." : ""}</p>)
   }
@@ -36,7 +38,7 @@ const HandleShow =()=> {
     try {
       let result = "In NABRE Bible, " + prompt + " Provide a verse supporting results.";
       const response = await axios.post('https://cos550-aimeelramirez-api.herokuapp.com/api', {prompt:result});
-      state.push({prompt, data:response.data});  
+      state.push({id: state.length+1,prompt, data:response.data});  
 
       console.log(response);
 
