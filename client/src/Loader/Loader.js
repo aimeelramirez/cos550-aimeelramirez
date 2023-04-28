@@ -12,8 +12,9 @@ const Loader = () => {
     },
   };
 
-  return (
+  return (<>
       <Lottie options={defaultOptions} height={'50%'} width={"50%"} />
+      Loading...</>
   );
 };
 export default Loader;
