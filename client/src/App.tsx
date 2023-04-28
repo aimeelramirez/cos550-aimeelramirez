@@ -52,7 +52,23 @@ const HandleShow =()=> {
   }
 
   //create a loader
+  if (loaded === false) {
+    setTimeout(() => {
+      setLoaded(true);
+    }, 4000);
 
+    return (
+      <div id="Loader" style={{ paddingTop:'5%', textAlign: 'center', margin: '0 auto' }}>
+        <div
+          onClick={() => {
+            setLoaded(true);
+          }}
+        >
+          <Loader />
+        </div>
+      </div>
+    );
+  } else {
 if(clickRef === true && state){
   setClick(false);
 return(
@@ -70,7 +86,7 @@ return(
     <textarea>Why is the sky blue?</textarea>
     <hr/>
     <p>Please provide a question to the prompt above.</p>
-    <button title={'Submit'}  name="Submit" type="submit">Submit</button>
+    <button title={'Submit'} type="submit">Submit</button>
     </form>
     </div>
 <footer id="footer">Hi Mommy Milagros</footer>
@@ -93,7 +109,7 @@ return(
           <textarea>Why is the sky blue?</textarea>
           <hr/>
           <p>Please provide a question to the prompt above.</p>
-          <button title={'Submit'} name="Submit" type="submit">Submit</button>
+          <button title={'Submit'} type="submit">Submit</button>
           </form>
           </div>
       <footer  id="footer"> Hi Mommy Milagros</footer>
@@ -101,6 +117,6 @@ return(
     );
   }
 }
-
+}
 
 export default App;
