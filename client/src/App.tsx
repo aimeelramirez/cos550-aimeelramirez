@@ -69,7 +69,6 @@ const HandleShow =()=> {
       </div>
     );
   } else {
-if(clickRef === true && state){
   setClick(false);
 return(
   <div className="App">
@@ -91,31 +90,7 @@ return(
     </div>
 <footer id="footer">Hi Mommy Milagros</footer>
 </div>
-)
-    }else{
-      
-    return (
-      <div className="App">
-      <header className="App-header">
-      <h1>PraiseAI</h1>
-      {hasClicked ? <><div className="box">
-       <HandleShow/></div>
-      <button title={'Clear'}  onClick={handleClearClick} type="submit">clear</button></>
-: ''}
-         </header>
-         <div className="content">
-         <hr/>
-          <form ref={inputRef}  onSubmit={handleClick} >
-          <textarea>Why is the sky blue?</textarea>
-          <hr/>
-          <p>Please provide a question to the prompt above.</p>
-          <button title={'Submit'} type="submit">Submit</button>
-          </form>
-          </div>
-      <footer  id="footer"> Hi Mommy Milagros</footer>
-      </div>
-    );
-  }
+)    
 }
 }
 
