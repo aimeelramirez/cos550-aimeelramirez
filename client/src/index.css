@@ -21,7 +21,6 @@ code {
     color: black;
     overflow-y: scroll;
     text-align: left;
-    border: 1px solid grey;
     border-radius: .8rem;
     }
 }
@@ -60,6 +59,7 @@ textarea{
   border-radius: .8rem;
 
 }
+
 button{
   border-radius: 8px;
   transition-duration: 0.4s;
@@ -71,9 +71,26 @@ button{
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  margin-top:.5rem;
 
 }
 button:hover {
   background-color: #3b833e; 
   color: white;
 }
+button:disabled,
+button[disabled]{
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+  pointer-events:none;
+
+}
+#loadData{
+  list-style-type: none;
+  text-align: center; 
+  margin: 0 auto;
+  padding:0;
+  
+}
+

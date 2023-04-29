@@ -41,9 +41,8 @@ width:100%;
   /* color: white; */
 }
 
-.App-header > ul > li {
-
-  list-style-type: circle;
+ ul > li {
+  list-style-type: none;
 }
 .App-link {
   color: #61dafb;
