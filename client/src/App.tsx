@@ -33,7 +33,7 @@ const HandleShow =()=> {
   if(state.length > 0){
      result = state.slice(0)
     .reverse().map((element:any, i:number) => {
-        return  "\n\n Q: "+ element.prompt + "\n  A: " +element.data;
+        return  " Q: "+ JSON.stringify(element.prompt) + "A: " +JSON.stringify(element.data);
     })
     link.href = URL.createObjectURL(new Blob(result,{type: 'text/plain;charset=utf-8' }));
 
