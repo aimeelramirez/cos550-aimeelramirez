@@ -3,15 +3,20 @@ import axios from 'axios';
 import Loader from "./Loader/Loader";
 import "./App.css";
 
+
 function App() {
   const [loaded, setLoaded] = useState<any>(false);
   const [clickRef, setClick]= useState<any>(false);
   const [hasClicked, setHasClicked]= useState<any>(false);
-
   const inputRef = useRef<any>(null);
   const [state, setState]= useState<any>([]);
- 
- 
+  const link = document.createElement("a");
+ // Add file name
+link.download = "history.txt";
+  function handlePrint(){
+   link.click();
+   URL.revokeObjectURL(link.href);
+  }
   function handleClearClick(e:any) {
     setState([]);
 
@@ -23,20 +28,25 @@ function App() {
     
   }
 const HandleShow =()=> {
-  state.reverse()
   if(state.length > 0){
-    console.log(state)
-   return ( <><ul>{state.map((element:any, i:number) => {
+    let result = state.slice(0)
+    .reverse().map((element:any, i:number) => {
+        return  "\n\n Q: "+ element.prompt + "\n  A: " +element.data;
+    })
+    link.href = URL.createObjectURL(new Blob(result,{ type: 'text/plain' }));
+   return ( <><ul>{state.slice(0)
+    .reverse().map((element:any, i:number) => {
     return(<li key={state.id}><p>Q: {element.prompt}</p>A: {element.data}</li>)
    })
-   }</ul> </> )
+   }</ul> </> 
+)
   }else{
     return(<p>{hasClicked ? "Cleared." : ""}</p>)
   }
   }
   async function postUserPrompt(prompt:any) {
     try {
-      let result = "In NABRE Bible, " + prompt + " Provide a verse supporting results.";
+      let result = "In NABRE Bible, " + prompt + " Provide a reason and a verse supporting results in at least one paragraph.";
       const response = await axios.post('https://cos550-aimeelramirez-api.herokuapp.com/api', {prompt:result});
       state.push({id: state.length+1,prompt, data:response.data});  
 
@@ -78,7 +88,10 @@ return(
    </header>
    {hasClicked ? <><div className="box">
        <HandleShow/></div>
-      <button title={'Clear'}  onClick={handleClearClick} type="submit">clear</button></>
+      <button title={'Clear'}  onClick={handleClearClick} type="submit">clear</button>
+      <button title={'Print'}  onClick={handlePrint} type="submit">Print</button>
+
+      </>
 : ''}
    <div className="content">
    <hr/>
@@ -100,7 +113,10 @@ return(
       <h1>PraiseAI</h1>
       {hasClicked ? <><div className="box">
        <HandleShow/></div>
-      <button title={'Clear'}  onClick={handleClearClick} type="submit">clear</button></>
+      <button title={'Clear'}  onClick={handleClearClick} type="submit">clear</button>
+      <button title={'Print'}  onClick={handlePrint} type="submit">Print</button>
+
+      </>
 : ''}
          </header>
          <div className="content">

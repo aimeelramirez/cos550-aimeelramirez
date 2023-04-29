@@ -11,17 +11,44 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.box{
-margin: 0 auto;
-padding:0;
-background-color: white;
-width: 50%;
-height: 100px;
-color: black;
-overflow: scroll;
-text-align: left;
-border: 1px solid grey;
-border-radius: .8rem;
+@media (30em <= width <= 80em) {
+  .box{
+    margin: 1rem 4rem;
+    padding:0;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    color: black;
+    overflow-y: scroll;
+    text-align: left;
+    border: 1px solid grey;
+    border-radius: .8rem;
+    }
+}
+@media screen and (max-width: 60em) {
+  .box{
+    margin: 0 auto;
+    padding: .5rem;
+    background-color: white;
+    width: 100%;
+    height: 50%;
+    max-height: 20rem;
+    color: black;
+    overflow: scroll;
+    
+    text-align: left;
+    border-radius: .8rem;
+    }
+    ul{
+      padding: 1rem;
+      
+    }
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, .5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, .5);
 }
 textarea{
   background-color: white;
