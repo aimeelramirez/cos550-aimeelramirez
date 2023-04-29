@@ -13,7 +13,7 @@ function App() {
   const link = document.createElement("a");
  // Add file name
  let result:any;
-link.download = "history.html";
+link.download = "history.txt";
   function handlePrint(){
    link.click();
 
@@ -32,8 +32,13 @@ link.download = "history.html";
 const HandleShow =()=> {
   if(state.length > 0){
      result = state.slice(0)
-    .reverse().map((element:any, i:number) => {
-        return  "Question:\n"+ element.prompt + `\n Answer:${element.data}`;
+    .reverse().map((element:any,k:number) => {
+      let data = [];
+      for(let i = 0; i <  element.data.length; i++){
+        data.push(element.data[i].replace('“', '"').replace('”', '"'))
+      }
+         return  "Question:\n"+ element.prompt + `\n Answer:${data.join('')}`;
+
     })
     link.href = URL.createObjectURL(new Blob(result,{type: 'application/html' }));
 
