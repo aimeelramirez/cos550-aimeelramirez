@@ -13,7 +13,7 @@ function App() {
   const link = document.createElement("a");
  // Add file name
  let result:any;
-link.download = "history.txt";
+link.download = "history.html";
   function handlePrint(){
    link.click();
 
@@ -33,9 +33,9 @@ const HandleShow =()=> {
   if(state.length > 0){
      result = state.slice(0)
     .reverse().map((element:any, i:number) => {
-        return  " Q: "+ JSON.stringify(element.prompt) + "A: " +JSON.stringify(element.data);
+        return  "Question:\n"+ element.prompt + `\n Answer:${element.data}`;
     })
-    link.href = URL.createObjectURL(new Blob(result,{type: 'text/plain;charset=utf-8' }));
+    link.href = URL.createObjectURL(new Blob(result,{type: 'application/html' }));
 
    return ( <><ul>{state.slice(0)
     .reverse().map((element:any, i:number) => {
