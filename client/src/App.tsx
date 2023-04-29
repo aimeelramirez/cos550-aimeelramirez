@@ -12,9 +12,11 @@ function App() {
   const [state, setState]= useState<any>([]);
   const link = document.createElement("a");
  // Add file name
+ let result:any;
 link.download = "history.txt";
   function handlePrint(){
    link.click();
+
    URL.revokeObjectURL(link.href);
   }
   function handleClearClick(e:any) {
@@ -29,11 +31,12 @@ link.download = "history.txt";
   }
 const HandleShow =()=> {
   if(state.length > 0){
-    let result = state.slice(0)
+     result = state.slice(0)
     .reverse().map((element:any, i:number) => {
         return  "\n\n Q: "+ element.prompt + "\n  A: " +element.data;
     })
-    link.href = URL.createObjectURL(new Blob(result,{ type: 'text/plain' }));
+    link.href = URL.createObjectURL(new Blob(result,{type: 'text/plain;charset=utf-8' }));
+
    return ( <><ul>{state.slice(0)
     .reverse().map((element:any, i:number) => {
     return(<li key={state.id}><p>Q: {element.prompt}</p>A: {element.data}</li>)
