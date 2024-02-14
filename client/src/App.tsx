@@ -103,7 +103,8 @@ function App() {
         "https://cos550-aimeelramirez-api.herokuapp.com/api",
         { prompt: result }
       );
-      state.push({ id: state.length + 1, prompt, data: response.data });
+        console.log(response);
+      state.push({ id: state.length + 1, prompt, data: response.data.content });
 
       console.log(response);
       setSubmit(false);
@@ -204,7 +205,7 @@ function App() {
       return (
         <div className="App">
           <header className="App-header">
-            <h1>PraiseAI</h1>
+            <h1>PraiseAI v2</h1>
             {hasClicked ? (
               <>
                 <div className="box">
