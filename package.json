@@ -10,7 +10,8 @@
     "install": "npm run start-api && npm run start-client",
     "start-client":"cd ./client && npm install && npm run start",
     "start-api-test":"cd ./api && npm run start-dev",
-    "start-api":"cd ./api && npm install && npm run start"
+    "start-api":"cd ./api && npm install && npm run start",
+    "build":"cd ./client && npm install && npm run build"
 
   },
   "repository": {
