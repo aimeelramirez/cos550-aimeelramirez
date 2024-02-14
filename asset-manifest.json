@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/cos550-aimeelramirez/static/css/main.ab88cacf.css",
+    "main.js": "/cos550-aimeelramirez/static/js/main.25a11263.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/cos550-aimeelramirez/static/js/787.c4e7f8f9.chunk.js",
+    "index.html": "/cos550-aimeelramirez/index.html",
+    "main.ab88cacf.css.map": "/cos550-aimeelramirez/static/css/main.ab88cacf.css.map",
+    "main.25a11263.js.map": "/cos550-aimeelramirez/static/js/main.25a11263.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/cos550-aimeelramirez/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ab88cacf.css",
+    "static/js/main.25a11263.js"
+  ]
+}
